@@ -11,6 +11,7 @@
             type: "GET",
             dataType: "jsonp",
             error: function(xhr, exception){
+              alert('sssssssssssssss');
               if( xhr.status === 0)
                 alert('Error : ' + xhr.status + 'You are not connected.');
               else if( xhr.status == "201")
