@@ -27,10 +27,11 @@
         };
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify({ data: {num1: form.submission.data.num1, num2: form.submission.data.num2, result: form.submission.data.result, method: form.submission.data.method}}))
       }
      
 
-      //xhttp.send(JSON.stringify({ data: {num1: form.submission.data.num1, num2: form.submission.data.num2, result: form.submission.data.result, method: form.submission.data.method}}))
+      
 
     </script>
   </head>
