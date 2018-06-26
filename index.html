@@ -7,8 +7,7 @@
     <script type='text/javascript' language="javascript">
       window.onload = function() {
         Formio.createForm(document.getElementById('formio'), 'https://ryjgouzqayqmxyg.form.io/calculate') 
-      }
-     
+
         var url  = "https://calculate.azure-api.net/calculate/manual/paths/invoke";
         var xhttp = new XMLHttpRequest();    
         var obj = null;
@@ -28,6 +27,9 @@
         };
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      }
+     
+
       //xhttp.send(JSON.stringify({ data: {num1: form.submission.data.num1, num2: form.submission.data.num2, result: form.submission.data.result, method: form.submission.data.method}}))
 
     </script>
