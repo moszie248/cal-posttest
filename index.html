@@ -8,10 +8,26 @@
       window.onload = function() {
         Formio.createForm(document.getElementById('formio'), 'https://ryjgouzqayqmxyg.form.io/calculate') 
       }
-      console.log("Hello");
-      console.log(this.status);
-    </script>
+      var url  = "https://calculate.azure-api.net/calculate/manual/paths/invoke";
+      var xhttp = new XMLHttpRequest();    
+      var obj = null;
+      xhttp.onreadystatechange = function() {
+          if (this.status === 500) {
+			 	 console.log('WHAT WTHE 3.....');
+			form.submission = {data: {num1: 99999999, num2: 99999999999, result: "Internal Server Error", method: 0}}
+		  } else if (this.status === 501){
+			form.submission = {data: {num1: 99999999, num2: 99999999999, result: "Not Implemented", method: 0}}
+		  } else if (this.status === 503){
+			form.submission = {data: {num1: 99999999, num2: 99999999999, result: "Service Unavailable", method: 0}}
+		  } else if (this.status === 504){
+			form.submission = {data: {num1: 99999999, num2: 99999999999, result: "Gateway Timeout", method: 0}}
+		  }			
+    	};
+      xhttp.open("POST", url, true);
+      xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhttp.send(JSON.stringify({ data: {num1: form.submission.data.num1, num2: form.submission.data.num2, result: form.submission.data.result, method: form.submission.data.method}}))
 
+    </script>
   </head>
 
   <body>
